@@ -24,6 +24,8 @@ namespace Intersect.Client.Framework.Gwen.Input
 
             TextEntered,
 
+            MouseScroll,
+
         }
 
         private Canvas mCanvas;
@@ -133,6 +135,12 @@ namespace Intersect.Client.Framework.Gwen.Input
                     key = TranslateKeyCode(msg.Key);
 
                     return mCanvas.Input_Key(key, false); //TODO FIX THIS LAST PARAMETER
+
+                //Mouse scrolling
+                case InputEvent.MouseScroll:
+                    return mCanvas.Input_MouseScroll((int)msg.MousePosition.X, (int)msg.MousePosition.Y);
+                //Fin
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

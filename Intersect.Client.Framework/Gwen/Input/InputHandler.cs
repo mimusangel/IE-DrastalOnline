@@ -2,6 +2,9 @@
 using System.Text;
 
 using Intersect.Client.Framework.Gwen.Control;
+//Mouse scrolling
+using Intersect.Client.Framework.Gwen.ControlInternal;
+//Fin Mouse Scrolling
 using Intersect.Client.Framework.Gwen.DragDrop;
 
 namespace Intersect.Client.Framework.Gwen.Input
@@ -392,6 +395,36 @@ namespace Intersect.Client.Framework.Gwen.Input
             }
 
             return false;
+        }
+
+        /// <summary>
+        ///     Mouse click handler.
+        /// </summary>
+        /// <param name="canvas">Canvas.</param>
+        /// <param name="mouseButton">Mouse button number.</param>
+        /// <param name="down">Specifies if the button is down.</param>
+        /// <returns>True if handled.</returns>
+        //public static bool OnKeyEvent(Base canvas, Key key, bool down)
+        public static bool OnMouseScroll(Base canvas, int deltaX, int deltaY)
+        {
+
+
+            if (canvas == null)
+                return false;
+
+            if (HoveredControl.GetCanvas() != canvas)
+                return false;
+
+            if (!canvas.IsVisible)
+                return false;
+
+            if (deltaY != 0)
+                HoveredControl.InputMouseWheeled(deltaY);
+
+            if (deltaX != 0)
+                HoveredControl.InputMouseHWheeled(deltaX);
+
+            return true;
         }
 
         /// <summary>

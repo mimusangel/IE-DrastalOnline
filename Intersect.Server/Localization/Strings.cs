@@ -129,6 +129,11 @@ namespace Intersect.Server.Localization
             [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
             public readonly LocalizedString onlytradeempty = @"Cannot trade bag unless it's empty!";
 
+            //FIX TRADE
+            [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+            public readonly LocalizedString tradebound = @"Cannot trade bound items!";
+            //FIN FIX
+
             [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
             public readonly LocalizedString withdrawinvalid = @"Invalid item selected to retreive!";
 

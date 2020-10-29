@@ -133,8 +133,12 @@ namespace Intersect.Server.Core
                         {
                             ThreadConsole.Abort();
                         }
-                        catch (ThreadAbortException ex)
+                        //catch (ThreadAbortException ex)
+                        //add 29/09/20
+                        catch (ThreadAbortException threadAbortException)
+                        //fin
                         {
+                            Log.Error(threadAbortException, $"{nameof(ThreadConsole)} aborted.");
                         }
                     }
                 }
@@ -148,8 +152,16 @@ namespace Intersect.Server.Core
                         {
                             ThreadLogic.Abort();
                         }
-                        catch (ThreadAbortException ex)
+                        //catch (ThreadAbortException ex)
+                       
+                        //add 29/09/20
+                        catch (ThreadAbortException threadAbortException)
+                        //fin
+
                         {
+                            //add 29/09/20
+                            Log.Error(threadAbortException, $"{nameof(ThreadLogic)} aborted.");
+                            //fin
                         }
                     }
                 }

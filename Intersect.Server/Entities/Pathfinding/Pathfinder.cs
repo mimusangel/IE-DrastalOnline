@@ -332,7 +332,8 @@ namespace Intersect.Server.Entities.Pathfinding
                 {
                     case PathfinderResult.Success:
                         //Use the same path for at least a second before trying again.
-                        mWaitTime = timeMs + 200;
+                        //mWaitTime = timeMs + 200;
+                        //No wait time for more fluidity
                         mConsecutiveFails = 0;
 
                         break;

@@ -9,6 +9,7 @@ using Intersect.GameObjects;
 using Intersect.GameObjects.Events;
 using Intersect.GameObjects.Events.Commands;
 using Intersect.GameObjects.Maps.MapList;
+using Intersect.Logging;
 
 namespace Intersect.Editor.Forms.Editors.Events
 {

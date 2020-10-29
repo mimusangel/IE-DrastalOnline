@@ -570,7 +570,10 @@ namespace Intersect.Client.Interface.Game
             if (mShouldUpdateFriendsList)
             {
                 GameMenu.UpdateFriendsList();
-			}
+                //fix liste amis
+                mShouldUpdateFriendsList = false;
+                //fin
+            }
 
 			if (mShouldUpdateConnectedList)
 			{

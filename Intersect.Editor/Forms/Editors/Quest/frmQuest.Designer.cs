@@ -727,6 +727,7 @@ namespace Intersect.Editor.Forms.Editors.Quest
             this.Name = "FrmQuest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quest Editor";
+            this.Load += new System.EventHandler(this.FrmQuest_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
             this.grpQuests.ResumeLayout(false);
             this.grpQuests.PerformLayout();

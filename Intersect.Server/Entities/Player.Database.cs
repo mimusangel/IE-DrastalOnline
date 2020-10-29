@@ -266,7 +266,11 @@ namespace Intersect.Server.Entities
 
         [NotNull] private static readonly Func<PlayerContext, Guid, Player> QueryPlayerById =
             EF.CompileQuery(
-                (PlayerContext context, Guid id) => context.Players.Where(p => p.Id == id)
+                (PlayerContext context, Guid id) => context.Players
+                //.Where(p => p.Id == id)
+                    //add 29/09/20
+                    .Where(c => c.Id == id)
+                    //fin
                     .Include(p => p.Bank)
                     .Include(p => p.Friends)
                     .ThenInclude(p => p.Target)
@@ -283,7 +287,11 @@ namespace Intersect.Server.Entities
 
         [NotNull] private static readonly Func<PlayerContext, string, Player> QueryPlayerByName =
             EF.CompileQuery(
-                (PlayerContext context, string name) => context.Players.Where(p => p.Name == name)
+                (PlayerContext context, string name) => context.Players
+                //.Where(p => p.Name == name)
+                //add 29/09/20
+                .Where(c => c.Name == name)
+                //fin
                     .Include(p => p.Bank)
                     .Include(p => p.Friends)
                     .ThenInclude(p => p.Target)

@@ -247,6 +247,29 @@ namespace Intersect.Client.Framework.Gwen.Control
             return false;
         }
 
+        //Mouse scrolling
+        /// <summary>
+        ///     Handler invoked on mouse wheel event.
+        /// </summary>
+        /// <param name="delta">Scroll delta.</param>
+        /// <returns></returns>
+        protected override bool OnMouseHWheeled(int delta)
+        {
+
+            if (CanScrollH && mHorizontalScrollBar.IsVisible)
+            {
+                if (mHorizontalScrollBar.SetScrollAmount(
+                    mHorizontalScrollBar.ScrollAmount - mHorizontalScrollBar.NudgeAmount * (delta / 60.0f), true
+                ))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        //Fin Mouse scrolling
+
         /// <summary>
         ///     Renders the control using specified skin.
         /// </summary>

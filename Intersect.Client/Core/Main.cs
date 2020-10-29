@@ -246,7 +246,15 @@ namespace Intersect.Client.Core
 
                 canShowWorld = true;
                 if (canShowWorld)
+                //add du 18/10/2020
+                { 
+                //FIN
                     Globals.NeedsMaps = false;
+                //add du 18/10/2020
+                    //Send ping to server, so it will resync time if needed as we load in
+                    PacketSender.SendPing();
+                }
+                //FIN
             }
             else
             {

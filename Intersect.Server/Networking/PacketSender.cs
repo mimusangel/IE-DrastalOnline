@@ -493,6 +493,14 @@ namespace Intersect.Server.Networking
             player.SendPacket(new NpcAggressionPacket(npc.Id, npc.GetAggression(player)));
         }
 
+        //add 29/09/20
+        //EntityLeftArea
+        public static void SendEntityLeaveMap(Entity en, Guid leftMap)
+        {
+            SendDataToMap(leftMap, new EntityLeftPacket(en.Id, en.GetEntityType(), en.MapId));
+        }
+        //fin
+
         //EntityLeftPacket
         public static void SendEntityLeave(Entity en)
         {

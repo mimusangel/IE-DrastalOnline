@@ -248,9 +248,35 @@ namespace Intersect.Client.Networking
         //MapEntitiesPacket
         private static void HandlePacket(MapEntitiesPacket packet)
         {
+            //add 29/09/20
+            var mapEntities = new Dictionary<Guid, List<Guid>>();
+            //fin
             foreach (var pkt in packet.MapEntities)
             {
                 HandlePacket((dynamic) pkt);
+                //add 29/09/20
+                if (!mapEntities.ContainsKey(pkt.MapId))
+                {
+                    mapEntities.Add(pkt.MapId, new List<Guid>());
+                }
+
+                mapEntities[pkt.MapId].Add(pkt.EntityId);
+            }
+
+            //Remove any entities on the map that shouldn't be there anymore!
+            foreach (var entities in mapEntities)
+            {
+                foreach (var entity in Globals.Entities)
+                {
+                    if (entity.Value.CurrentMap == entities.Key && !entities.Value.Contains(entity.Key))
+                    {
+                        if (!Globals.EntitiesToDispose.Contains(entity.Key) && entity.Value != Globals.Me)
+                        {
+                            Globals.EntitiesToDispose.Add(entity.Key);
+                        }
+                    }
+                }
+                //fin
             }
         }
 

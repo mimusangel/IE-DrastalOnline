@@ -5,6 +5,7 @@
     {
 
         private static string sValue = null;
+        
 
         public static bool ContainsText()
         {
@@ -13,6 +14,7 @@
 
         public static string GetText()
         {
+
             if (ContainsText())
             {
                 return sValue;
