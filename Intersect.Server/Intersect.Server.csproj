@@ -58,7 +58,7 @@
     <StartupObject>Intersect.Server.Core.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -790,7 +790,6 @@
     <None Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="favicon.ico" />
     <Content Include="Icon.ico" />
     <None Include="packages.config">
       <SubType>Designer</SubType>

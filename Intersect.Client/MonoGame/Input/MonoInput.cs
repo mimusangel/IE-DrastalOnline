@@ -30,12 +30,6 @@ namespace Intersect.Client.MonoGame.Input
 
         private int mMouseY;
 
-        //Mouse scrolling
-        private int mMouseVScroll;
-
-        private int mMouseHScroll;
-        //Fin
-
         private Game mMyGame;
 
         public MonoInput(Game myGame)
@@ -165,25 +159,6 @@ namespace Intersect.Client.MonoGame.Input
             }
         }
 
-        //Mouse scrolling
-        private void CheckMouseScrollWheel(int scrlVValue, int scrlHValue)
-        {
-            Pointf p = new Pointf(0, 0);
-
-            if (scrlVValue != mMouseVScroll || scrlHValue != mMouseHScroll)
-            {
-                p = new Pointf(scrlHValue - mMouseHScroll, scrlVValue - mMouseVScroll);
-
-                Interface.Interface.GwenInput.ProcessMessage(
-                    new GwenInputMessage(IntersectInput.InputEvent.MouseScroll, p, (int)MouseButtons.Middle, Keys.Alt)
-                );
-
-                mMouseVScroll = scrlVValue;
-                mMouseHScroll = scrlHValue;
-            }
-        }
-        //Fin
-
         public override void Update()
         {
             if (mMyGame.IsActive)
@@ -206,10 +181,6 @@ namespace Intersect.Client.MonoGame.Input
                 CheckMouseButton(state.LeftButton, MouseButtons.Left);
                 CheckMouseButton(state.RightButton, MouseButtons.Right);
                 CheckMouseButton(state.MiddleButton, MouseButtons.Middle);
-
-                //Mouse scrolling
-                CheckMouseScrollWheel(state.ScrollWheelValue, state.HorizontalScrollWheelValue);
-                //Fin
 
                 foreach (var key in mKeyDictionary)
                 {

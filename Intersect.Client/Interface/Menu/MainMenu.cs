@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 
-//add 30/09/20 : Discord
-using System.Diagnostics;
-//fin
-
 using Intersect.Client.Core;
 using Intersect.Client.Framework.File_Management;
 using Intersect.Client.Framework.Gwen;
@@ -13,10 +9,6 @@ using Intersect.Client.General;
 using Intersect.Client.Interface.Shared;
 using Intersect.Client.Localization;
 using Intersect.Client.Networking;
-
-//add 30/09/20 : Discord
-using Intersect.Configuration;
-//fin
 
 using JetBrains.Annotations;
 
@@ -74,41 +66,13 @@ namespace Intersect.Client.Interface.Menu
 
         private bool mShouldOpenCharacterSelection;
 
-        //add 30/09/20 : Discord
-        private readonly Button mDiscordButton;
-        //private readonly Button mSiteWebdButton;
-        //fin
-
         //Init
         public MainMenu(Canvas menuCanvas)
         {
             mMenuCanvas = menuCanvas;
 
             var logo = new ImagePanel(menuCanvas, "Logo");
-            //logo.LoadJsonUi(GameContentManager.UI.Menu, Graphics.Renderer.GetResolutionString());
             logo.LoadJsonUi(GameContentManager.UI.Menu, Graphics.Renderer.GetResolutionString());
-
-            //add 30/09/20 : Discord
-            //Discord Button
-            mDiscordButton = new Button(menuCanvas, "DiscordButton");
-            mDiscordButton.Clicked += DiscordButton_Clicked;
-            mDiscordButton.SetImage(GameContentManager.Current.GetTexture(GameContentManager.TextureType.Gui, "discord.png"), "discord.png", Button.ControlState.Normal);
-            mDiscordButton.SetSize(220, 70);
-            mDiscordButton.CurAlignments.Add(Alignments.Bottom);
-            mDiscordButton.CurAlignments.Add(Alignments.Right);
-            mDiscordButton.ProcessAlignments();
-            mDiscordButton.LoadJsonUi(GameContentManager.UI.Menu, Graphics.Renderer.GetResolutionString());
-
-            //add 30/09/20 : Site Web
-           /* mSiteWebdButton = new Button(menuCanvas, "SiteWebdButton");
-            mSiteWebdButton.Clicked += SiteWebdButton_Clicked;
-            mSiteWebdButton.SetImage(GameContentManager.Current.GetTexture(GameContentManager.TextureType.Gui, "web.png"), "web.png", Button.ControlState.Normal);
-            mSiteWebdButton.SetSize(220, 70);
-            mSiteWebdButton.CurAlignments.Add(Alignments.Top);
-            mSiteWebdButton.CurAlignments.Add(Alignments.Right);
-            mSiteWebdButton.ProcessAlignments();
-            mSiteWebdButton.LoadJsonUi(GameContentManager.UI.Menu, Graphics.Renderer.GetResolutionString());*/
-            //fin
 
             //Main Menu Window
             mMenuWindow = new ImagePanel(menuCanvas, "MenuWindow");
@@ -387,26 +351,6 @@ namespace Intersect.Client.Interface.Menu
             ActiveNetworkStatus = denied ? NetworkStatus.Failed : NetworkStatus.Connecting;
             NetworkStatusChanged?.Invoke();
         }
-
-        //add 30/09/20 : Discord
-        private void DiscordButton_Clicked(Base sender, ClickedEventArgs arguments)
-        {
-            if (!string.IsNullOrWhiteSpace(ClientConfiguration.Instance.DiscordInviteUrl))
-            {
-                //Start Process
-                    Process.Start(ClientConfiguration.Instance.DiscordInviteUrl);
-            }
-        }
-
-        /*private void SiteWebdButton_Clicked(Base sender, ClickedEventArgs arguments)
-        {
-            if (!string.IsNullOrWhiteSpace(ClientConfiguration.Instance.SiteWebUrl))
-            {
-                //Start Process
-                Process.Start(ClientConfiguration.Instance.SiteWebUrl);
-            }
-        }*/
-        //fin
 
     }
 

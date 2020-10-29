@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Server")]
 [assembly: AssemblyDescription("2D ORPG Server - Part of the Intersect Game Creation Suite")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Drastal Online")]
+[assembly: AssemblyCompany("Drastal")]
 [assembly: AssemblyProduct("Dratal Engine - Based with Intersect Game Engine")]
 [assembly: AssemblyCopyright("Copyright ©  2020 Ascension Game Dev")]
 [assembly: AssemblyTrademark("")]
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 
-[assembly: AssemblyVersion("1.2.5")]
-[assembly: AssemblyFileVersion("1.2.5")]
+[assembly: AssemblyVersion("1.2.0")]
+[assembly: AssemblyFileVersion("1.2.0")]

@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("Dratal Engine - Based with Intersect Game Engine")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("2D ORPG Client - Part of the Intersect Game Creation Suite")]
-[assembly: AssemblyCompany("Drastal Online")]
+[assembly: AssemblyCompany("Drastal")]
 [assembly: AssemblyCopyright("Copyright ©  2020 Ascension Game Dev")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -38,5 +38,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.2.5")]
-[assembly: AssemblyFileVersion("1.2.5")]
+[assembly: AssemblyVersion("1.2.0")]
+[assembly: AssemblyFileVersion("1.2.0")]

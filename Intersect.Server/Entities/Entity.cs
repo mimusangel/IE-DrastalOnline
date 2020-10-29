@@ -805,33 +805,6 @@ namespace Intersect.Server.Entities
                     var oldMap = MapInstance.Get(MapId);
                     oldMap?.RemoveEntity(this);
                     currentMap?.AddEntity(this);
-                    //add 29/09/20
-                    //Send Left Map Packet To the Maps that we are no longer with
-                    var oldMaps = oldMap?.GetSurroundingMaps(true);
-                    var newMaps = currentMap?.GetSurroundingMaps(true);
-
-                    if (oldMaps != null)
-                    {
-                        //foreach (var map in oldMaps.ToArray())
-
-                        //add du 27/10/2020 : Correction NPC Map
-                        foreach (var map in oldMaps)
-                        //fin
-                        {
-                            if (newMaps == null || !newMaps.Contains(map))
-                            {
-                                /*PacketSender.SendEntityLeaveMap(this, oldMap.Id);
-                                if (this is Player)
-                                {
-                                    var a = true;
-                                }*/
-                                //add 27/10/2020 : Correction NPC Map
-                                PacketSender.SendEntityLeaveMap(this, map.Id);
-                            }
-                        }
-                    }
-
-                    //fin
                 }
 
                 MapId = tile.GetMapId();
@@ -2223,20 +2196,14 @@ namespace Intersect.Server.Entities
 
                     break;
                 case SpellTypes.WarpTo:
-                    //if (CastTarget == null)
-                    //Add du 18/10/2020
-                    if (CastTarget != null)
-                    //FIN
+                    if (CastTarget == null)
                     {
-                        //PacketSender.SendSpellCooldown((Player) this, Spells[spellSlot].SpellId);
-                        //return;
+                        PacketSender.SendSpellCooldown((Player) this, Spells[spellSlot].SpellId);
 
-                        //ADD DU 18/10/2020
-                        HandleAoESpell(spellId, spellBase.Combat.CastRange, MapId, X, Y, CastTarget);
-                        //FIN
+                        return;
                     }
 
-                   // HandleAoESpell(spellId, spellBase.Combat.CastRange, MapId, X, Y, CastTarget);
+                    HandleAoESpell(spellId, spellBase.Combat.CastRange, MapId, X, Y, CastTarget);
 
                     break;
                 case SpellTypes.Dash:

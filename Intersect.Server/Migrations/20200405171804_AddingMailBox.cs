@@ -1,12 +1,11 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Intersect.Server.Migrations
 {
     public partial class AddingMailBox : Migration
     {
-        protected override void Up([NotNull]MigrationBuilder migrationBuilder)
+        protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Hair",
@@ -54,7 +53,7 @@ namespace Intersect.Server.Migrations
                 column: "SenderID");
         }
 
-        protected override void Down([NotNull]MigrationBuilder migrationBuilder)
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Player_MailBox");

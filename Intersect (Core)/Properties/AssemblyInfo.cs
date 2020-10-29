@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Intersect Library for Drastal Online")]
+[assembly: AssemblyTitle("Intersect Library for Drastal")]
 [assembly: AssemblyDescription("2D ORPG Library - Part of the Intersect Game Creation Suite")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Drastal Online")]
+[assembly: AssemblyCompany("Drastal")]
 [assembly: AssemblyProduct("Dratal Engine - Based with Intersect Game Engine")]
 [assembly: AssemblyCopyright("Copyright ©  2020 Ascension Game Dev")]
 [assembly: AssemblyTrademark("")]
@@ -38,5 +38,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.2.1")]
-[assembly: AssemblyFileVersion("1.2.1")]
+[assembly: AssemblyVersion("1.2.0")]
+[assembly: AssemblyFileVersion("1.2.0")]

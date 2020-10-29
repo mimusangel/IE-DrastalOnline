@@ -41,7 +41,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -899,7 +899,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
-    <Content Include="favicon.ico" />
     <Content Include="Icon.ico" />
     <EmbeddedResource Include="public-intersect.bek" />
     <None Include="packages.config" />

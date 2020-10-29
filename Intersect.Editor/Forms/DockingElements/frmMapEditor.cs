@@ -18,7 +18,6 @@ using Intersect.GameObjects.Events;
 using Intersect.GameObjects.Maps;
 using Intersect.Logging;
 
-
 using Microsoft.Xna.Framework.Graphics;
 
 using WeifenLuo.WinFormsUI.Docking;
